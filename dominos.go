@@ -76,7 +76,7 @@ func main () {
 					fmt.Printf("Session ID needs to be refreshed!\n")
 					break
 				}
-				fmt.Printf("%d: N\n", v);
+				
 			}
 		}
 
