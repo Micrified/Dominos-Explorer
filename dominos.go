@@ -35,7 +35,7 @@ func getCookie (sessionID, storeName, storeNumber string) string {
 func getVoucherURL (v int64) string {
 	voucher := fmt.Sprintf("%d", v)
 	url 	:= "https://bestellen.dominos.nl/estore/nl/Basket/ApplyVoucher?voucherCode="
-	return fmt.Sprintf("%s%s", url, voucher)
+	return url + voucher
 }
 
 // Queries dominos for valid pizza-codes (see header)
