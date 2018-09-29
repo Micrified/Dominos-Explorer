@@ -53,11 +53,11 @@ func main () {
 	limit, err := strconv.ParseInt(os.Args[3], 10, 32)
 
 	if err != nil {
-		fmt.Printf("Couldn't convert %s to an integer!\n", os.Args[3])
+		fmt.Printf("Err: Couldn't convert %s to an integer!\n", os.Args[3])
 		return
 	}
 
-	for v := limit; v > 0; v-- {
+	for v := limit; v > 10; v-- {
 		req, _ := http.NewRequest("POST", getVoucherURL(v), nil)
 		req.Header.Set("Cookie", cookie)
 
@@ -66,17 +66,17 @@ func main () {
 		err = json.Unmarshal(bodyBytes, &c)
     	
 		if (err != nil) {
-			fmt.Printf("%d: Bad Response -> Will try again!\n", v)
+			fmt.Printf("\n%d: Bad Response -> Will try again!\n", v)
 			v += 1;
 		} else {
+			fmt.Printf("\r%d", v)
 			if (isValid(c) == true) {
-				fmt.Printf("%d: Y\n", v);
+				fmt.Printf("\n");
 			} else {
 				if (strings.Contains(c.Messages[0], "expired") == true) {
-					fmt.Printf("Session ID needs to be refreshed!\n")
+					fmt.Printf("\nErr: Session ID needs to be refreshed!\n")
 					break
 				}
-				
 			}
 		}
 
