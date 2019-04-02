@@ -74,7 +74,11 @@ func main () {
 		req.Header.Set("Cookie", cookie)
 
 		res, _ := client.Do(req)
-		bodyBytes, _ := ioutil.ReadAll(res.Body)
+		bodyBytes, err := ioutil.ReadAll(res.Body)
+		if (err != nil) {
+			fmt.Errorf("Something went wrong: %s", err);
+			return;
+		}
 		err = json.Unmarshal(bodyBytes, &c)
     	
 		if (err != nil) {
