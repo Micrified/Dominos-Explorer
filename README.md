@@ -2,7 +2,7 @@
 
 ## Using the Pizza-Voucher-Explorer (Netherlands)
 
-There are never any fucking codes when you need them. I've had enough. 
+There are never any codes when you need them. I've had enough. 
 From now on, the Dominos-Voucher-Explorer(TM) will do the job of finding those elusive dominos codes. 
 
 To use this tool, you're going to need to know
